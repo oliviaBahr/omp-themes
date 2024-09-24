@@ -131,7 +131,7 @@ home_icon = ' '
 background = 'p:pink5'
 style = 'powerline'
 powerline_symbol = ''
-template = ' {{ .HEAD }}{{if lt (add .Ahead .Behind) 1}}<p:light-pink> </>{{end}}{{if gt .Working.Unmerged 0}} {{.Working.Unmerged}}{{end}}{{if gt .Ahead 0}}{{.Ahead}}{{end}}{{if gt .Behind 0}}{{.Behind}}{{end}} {{ if (or .Working.Added .Working.Modified .Working.Deleted) }} {{ add .Working.Added .Working.Modified .Working.Deleted }}{{end}}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}<p:gray> 󱠷 {{ .StashCount }}</>{{ end }} '
+template = ' {{ .HEAD }}{{if lt (add .Ahead .Behind) 1}}<p:light-pink> </>{{end}}{{if gt .Working.Unmerged 0}}  {{.Working.Unmerged}}{{end}}{{if gt .Ahead 0}} {{.Ahead}}{{end}}{{if gt .Behind 0}}{{.Behind}}{{end}}{{ if (or .Working.Added .Working.Modified .Working.Deleted) }}  {{ add .Working.Added .Working.Modified .Working.Deleted }}{{end}}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}<p:gray> 󱠷 {{ .StashCount }}</>{{ end }}'
 type = 'git'
 
 [blocks.segments.properties]

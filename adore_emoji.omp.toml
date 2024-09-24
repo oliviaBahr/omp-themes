@@ -104,18 +104,20 @@ template = '{{ if ne .Icon "" }}{{ .Icon }} {{end}}'
 [[blocks.segments]]
 background = 'p:pink2'
 style = 'powerline'
-powerline_symbol = ''
-template = "{{if .SSHSession }} {{ .UserName }} 󰴽{{ .HostName }} {{end}}"
+powerline_symbol = ' '
+leading_powerline_symbol = ''
+template = "{{if .SSHSession }}{{ .UserName }} 󰴽{{ .HostName }} {{end}}"
+# template = "{{ .UserName }} 󰴽{{ .HostName }}" # uncomment to show user and host all the time
 type = 'session'
 
 # Path
 [[blocks.segments]]
 alias = 'path_seg'
-powerline_symbol = ''
+powerline_symbol = ' '
 leading_powerline_symbol = ''
 background = "p:pink3"
 style = 'powerline'
-template = ' {{ .Path }}'
+template = '{{ .Path }}'
 type = 'path'
 
 [blocks.segments.properties]

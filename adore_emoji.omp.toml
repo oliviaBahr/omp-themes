@@ -90,7 +90,6 @@ bad_emojis = [
 alignment = 'left'
 newline = true
 type = 'prompt'
-foreground = 'transparent'
 
 # os
 [[blocks.segments]]
@@ -98,6 +97,7 @@ type = 'os'
 style = 'powerline'
 leading_powerline_symbol = ''
 powerline_symbol = ''
+foreground = 'darkGray'
 background = 'p:pink1'
 template = '{{ if ne .Icon "" }}{{ .Icon }} {{end}}'
 

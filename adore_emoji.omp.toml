@@ -1,5 +1,5 @@
 "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
-auto_upgrade = true
+auto_upgrade = false
 console_title_template = '{{ .Folder }}'
 version = 2
 
@@ -90,6 +90,7 @@ bad_emojis = [
 alignment = 'left'
 newline = true
 type = 'prompt'
+foreground = 'transparent'
 
 # os
 [[blocks.segments]]

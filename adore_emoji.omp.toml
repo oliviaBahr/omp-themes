@@ -165,7 +165,7 @@ style = 'powerline'
 leading_powerline_symbol = ''
 powerline_symbol = ''
 background = 'p:gray'
-foreground = 'transparent'
+foreground = 'black'
 background_templates = ['{{if ne .Code 0}}p:red{{end}}']
 templates = [
     '{{ .FormattedMs }}',

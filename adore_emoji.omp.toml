@@ -94,32 +94,34 @@ type = 'prompt'
 # os
 [[blocks.segments]]
 type = 'os'
+foreground = 'black'
+background = 'p:pink1'
 style = 'powerline'
 leading_powerline_symbol = ''
 powerline_symbol = ''
-foreground = 'darkGray'
-background = 'p:pink1'
 template = '{{ if ne .Icon "" }}{{ .Icon }} {{end}}'
 
 # user/ host
 [[blocks.segments]]
+type = 'session'
 background = 'p:pink2'
+foreground = 'black'
 style = 'powerline'
 powerline_symbol = ' '
 leading_powerline_symbol = ''
 template = "{{if .SSHSession }}{{ .UserName }} 󰴽{{ .HostName }} {{end}}"
 # template = "{{ .UserName }} 󰴽{{ .HostName }}" # uncomment to show user and host all the time
-type = 'session'
 
 # Path
 [[blocks.segments]]
+type = 'path'
+foreground = 'black'
+background = "p:pink3"
 alias = 'path_seg'
 powerline_symbol = ' '
 leading_powerline_symbol = ''
-background = "p:pink3"
 style = 'powerline'
 template = '{{ .Path }}'
-type = 'path'
 
 [blocks.segments.properties]
 style = 'agnoster_full'
@@ -131,6 +133,7 @@ home_icon = ' '
 
 # Git
 [[blocks.segments]]
+foreground = 'black'
 background = 'p:pink5'
 style = 'powerline'
 powerline_symbol = ''

@@ -1,0 +1,194 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+auto_upgrade = false
+console_title_template = '{{ .Folder }}'
+shell_integration = false
+final_space = false
+version = 2
+
+[palette]
+gray = '#808080'
+green = '#228B22'
+light-green = '#82BA93'
+pink1 = '#F9D1E3'
+pink2 = '#F4AEC8'
+pink3 = '#F092B5'
+pink4 = '#EC77A3'
+pink5 = '#E36A8D'
+pink6 = '#E85C90'
+red = '#FF6666'
+white = '#FFFFFF'
+
+[var]
+good_emojis = [
+    "🥹",
+    "😇",
+    "😉",
+    "😌",
+    "🥰",
+    "😍",
+    "😋",
+    "😘",
+    "🤪",
+    "🥳",
+    "🤩",
+    "🤓",
+    "😎",
+    "🥸",
+    "🤯",
+    "🤗",
+    "😱",
+    "🫡",
+    "🫨",
+    "🤠",
+    "👏",
+    "🙏",
+    "🎉"
+]
+bad_emojis = [
+    "😆",
+    "😂",
+    "😔",
+    "😭",
+    "😳",
+    "🤬",
+    "😡",
+    "🫢",
+    "😑",
+    "😬",
+    "👹",
+    "😰",
+    "😟",
+    "😞",
+    "🤫",
+    "🫣",
+    "🤡",
+    "💀",
+    "😵",
+    "👎",
+    "😅",
+    "🥲",
+    "🙃",
+    "🤨",
+    "🧐",
+    "😕",
+    "😒",
+    "🙁",
+    "🤔",
+    "🫠",
+    "😐",
+    "🤥",
+    "🙄",
+    "🥴",
+    "😳",
+    "👀",
+    "🥱",
+    "😮"
+]
+
+
+######## main prompt ###########################################################
+
+[[blocks]]
+newline = false
+alignment = 'left'
+type = 'prompt'
+
+# os
+[[blocks.segments]]
+style = 'plain'
+type = 'os'
+foreground = 'p:pink1'
+template = '{{ if ne .Icon "" }}{{ .Icon }} {{end}}'
+
+# user/ host
+[[blocks.segments]]
+style = 'plain'
+type = 'session'
+foreground = 'p:pink2'
+template = "{{if .SSHSession }}{{ .UserName }} 󰴽{{ .HostName }} {{end}}"
+# template = "{{ .UserName }} 󰴽{{ .HostName }}" # uncomment to show user and host all the time
+
+# Path
+[[blocks.segments]]
+style = 'plain'
+type = 'path'
+foreground = 'p:pink3'
+alias = 'path_seg'
+template = '{{ .Path }}'
+
+[blocks.segments.properties]
+style = 'agnoster_full'
+home_icon = ' '
+
+[blocks.segments.properties.mapped_locations]
+"/" = ' '
+"~/Library/Mobile Documents/com~apple~CloudDocs" = ' /Library/ '
+"~/Library/Mobile Documents/iCloud~md~obsidian/Documents" = ' /Library/ '
+"~/Library/Mobile Documents/iCloud~md~obsidian/Documents/school" = ' '
+
+
+# Git
+[[blocks.segments]]
+style = 'plain'
+foreground = 'p:pink5'
+templates = [
+    ' {{ .HEAD }} ',
+    '{{if not (or .Ahead .Behind .Staging.Changed .Working.Modified .Working.Added .Working.Deleted)}} {{end}}',
+    '{{if gt .Ahead 0}}{{.Ahead}}{{end}}',
+    '{{if gt .Behind 0}}{{.Behind}}{{end}}',
+    '{{if (or .Ahead .Behind)}} {{end}}',
+    '{{if gt .Working.Unmerged 0}} {{.Working.Unmerged}} {{end}}',
+    '{{ if (or .Working.Added .Working.Modified .Working.Deleted) }} {{ add .Working.Added .Working.Modified .Working.Deleted }} {{end}}',
+    '{{ if .Staging.Changed }} {{ .Staging.String }} {{ end }}',
+    '{{ if gt .StashCount 0 }}<p:gray> 󱠷 {{ .StashCount }}</>{{ end }}'
+]
+type = 'git'
+
+[blocks.segments.properties]
+branch_icon = ' '
+fetch_status = true
+
+
+####### right prompt ###########################################################
+
+[[blocks]]
+alignment = 'right'
+newline = false
+type = 'prompt'
+
+
+# execution time and emojis
+[[blocks.segments]]
+style = 'plain'
+type = 'executiontime'
+alias = 'exec_time'
+foreground = 'p:gray'
+templates = [
+    '{{if ne .Code 0}}<p:red>{{end}}{{ .FormattedMs }}',
+    '{{$e := ""}}{{if ne .Code 0}}{{ $e = random .Var.bad_emojis }}{{else}}{{ $e = random .Var.good_emojis }}{{end}} {{ $e }}{{ $e }}{{ $e }} ',
+]
+
+[blocks.segments.properties]
+style = 'austin'
+threshold = 0.0
+
+
+##### Second line ###########################################################
+
+[[blocks]]
+alignment = 'left'
+newline = true
+type = 'prompt'
+
+[[blocks.segments]]
+foreground = 'p:pink5'
+style = 'plain'
+template = '  '
+type = 'text'
+
+
+##### transient prompt ###########################################################
+
+[transient_prompt]
+foreground = 'p:pink3'
+template = '{{ .Segments.path_seg.Path }}<p:pink5>   '

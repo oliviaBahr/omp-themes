@@ -139,7 +139,7 @@ templates = [
     '{{if (or .Ahead .Behind)}} {{end}}',
     '{{if gt .Working.Unmerged 0}} {{.Working.Unmerged}} {{end}}',
     '{{ if (or .Working.Added .Working.Modified .Working.Deleted) }} {{ add .Working.Added .Working.Modified .Working.Deleted }} {{end}}',
-    '{{ if .Staging.Changed }} {{ .Staging.String }} {{ end }}',
+    '{{ if .Staging.Changed }} {{ add .Staging.Added .Staging.Modified .Staging.Deleted }} {{ end }}',
     '{{ if gt .StashCount 0 }}<p:gray> 󱠷 {{ .StashCount }}</>{{ end }}'
 ]
 type = 'git'

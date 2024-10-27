@@ -88,7 +88,7 @@ bad_emojis = [
 
 [[blocks]]
 alignment = 'left'
-newline = true
+newline = false
 type = 'prompt'
 
 # os
@@ -129,6 +129,8 @@ home_icon = ' '
 
 [blocks.segments.properties.mapped_locations]
 "/" = ' '
+"~/Library/Mobile Documents/com~apple~CloudDocs" = ' /Library/ '
+"~/Library/Mobile Documents/iCloud~md~obsidian/Documents" = ' /Library/ '
 
 
 # Git
@@ -142,10 +144,10 @@ type = 'git'
 
 [blocks.segments.properties]
 branch_icon = ' '
-fetch_stash_count = true
-fetch_status = true
-fetch_upstream_icon = true
-fetch_worktree_count = true
+# fetch_stash_count = true
+# fetch_status = false
+# # fetch_upstream_icon = false
+# fetch_worktree_count = true
 
 
 
